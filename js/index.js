@@ -1,14 +1,23 @@
 /**
  * Created by OnlyMid on 2017/7/11.
  */
-var silde_window = document.getElementsByClassName("slide_window");
+// 默认设置选择器第一个高亮
 var Lis = document.getElementsByTagName("li");
 Lis[0].style.display = "block";
 
-var selectorNum = document.getElementsByTagName("i").length;
+// 为选择器生成<i>
+var picNum = document.getElementById("pics").getElementsByTagName("li").length;
+for(var w=0;w<picNum;w++){
+    var Iss = document.getElementsByClassName("Is")[0];
+    Iss.appendChild(document.createElement("i"));
+}
+
+// 设置选择器第一个点高亮
 var selectors = document.getElementsByTagName("i");
 selectors[0].className = "active";
-for(var i=0;i<selectorNum;i++){
+
+// 为每一个li绑定事件
+for(var i=0;i<picNum;i++){
     selectorClick(i);
 }
 function  selectorClick(w) {
@@ -18,7 +27,7 @@ function  selectorClick(w) {
                 Lis[j].style.display = "none";
             }
             if(selectors[j].className = "active"){
-                selectors[j].className = "";
+                selectors[j].removeAttribute("class");
             }
         }
         Lis[w].style.display = "block";

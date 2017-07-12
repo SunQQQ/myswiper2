@@ -2,16 +2,22 @@
     margin: 0;
     padding: 0;
 }
-.slide_window{
+.myswiper{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 600px;
+}
+.myswiper .slide_window{
     width: 600px;
     overflow: hidden;
     position: relative;
 }
-.slide_window ul{
+.myswiper .slide_window ul{
     width: 1800px;
     font-size: 0;
 }
-.slide_window li{
+.myswiper .slide_window li{
     display: inline-block;
     width: 600px;
     height: 400px;
@@ -19,42 +25,49 @@
     position: relative;
     display: none;
 }
-.slide_window li img{
+.myswiper .slide_window li img{
     width: 100%;
     height: 100%;
 }
-.selector{
+.myswiper .selector{
     z-index: 100;
     position: absolute;
     width: 100%;
     bottom: 10px;
     text-align: center;
 }
-.selector .Is{
+.myswiper .selector .Is{
     border: 1px solid red;
     display: inline;
     border-radius: 15px;
     padding: 0px 10px;
 }
-.selector .active{
+.myswiper .selector .active{
     background-color: black;
 }
-.selector i{
+.myswiper .selector i{
     cursor: pointer;
     width: 12px;
     height: 12px;
     background-color: red;
     display: inline-block;
     border-radius: 100%;
+    margin: 0 3px;
 }
-.slide_window .leftbutton{
+.myswiper .leftbutton{
     position: absolute;
     left: 0;
-    width: 30px;
-    height: 30px;
-    background-color: red;
+    /*top:0;*/
+    width: 50px;
+    height: 50px;
+    background-color: #feff31;
     z-index: 100;
 }
-.slide_window .rightbutton{
-
+.myswiper .rightbutton{
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #feff31;
+    z-index: 100;
 }
