@@ -22,15 +22,41 @@ for(var i=0;i<picNum;i++){
 }
 function  selectorClick(w) {
     selectors[w].onmouseover = function () {
-        for(var j=0;j<3;j++){
-            if(Lis[j].style.display = "block"){
-                Lis[j].style.display = "none";
-            }
-            if(selectors[j].className = "active"){
-                selectors[j].removeAttribute("class");
-            }
-        }
-        Lis[w].style.display = "block";
-        selectors[w].className = "active";
+        swiper(w);
     }
+}
+// 定时切换
+var num = 0;
+
+// 左右按钮切换
+document.getElementsByClassName("leftbutton")[0].onclick = function () {
+    buttonClick(-1);
+}
+document.getElementsByClassName("rightbutton")[0].onclick = function () {
+    buttonClick(1);
+}
+
+// 切换选择器高亮
+function swiper(index) {
+    // 重置选择器、图片
+    for(var j=0;j<picNum;j++){
+        if(Lis[j].style.display = "block"){
+            Lis[j].style.display = "none";
+        }
+        if(selectors[j].className = "active"){
+            selectors[j].removeAttribute("class");
+        }
+    }
+    Lis[index].style.display = "block";
+    selectors[index].className = "active";
+}
+function buttonClick(index) {
+    num=num+index;
+    if(num>picNum-1){
+        num=0;
+    }
+    if(num<0){
+        num=picNum-1;
+    }
+    swiper(num);
 }
