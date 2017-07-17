@@ -6,9 +6,24 @@
     var autoSwiper;
 
     // 光标挪上时显示按钮，解除轮播
-    document.getElementsByClassName("slide_window")[0].onmouseover = function () {
-        console.log("zesan");
+    document.getElementsByClassName("myswiper")[0].onmouseover = function () {
+        console.log("movein");
+        //清除定时器
+        clearInterval(autoSwiper);
+        document.getElementsByClassName("leftbutton")[0].style.display = "block";
+        document.getElementsByClassName("rightbutton")[0].style.display = "block";
     }
+    document.getElementsByClassName("myswiper")[0].onmouseout = function () {
+        console.log("moveout");
+        //恢复定时器
+        autoSwiper = setInterval(function () {
+            buttonClick(1);
+        },3000);
+
+        document.getElementsByClassName("leftbutton")[0].style.display = "none";
+        document.getElementsByClassName("rightbutton")[0].style.display = "none";
+    }
+    
 
     // 默认设置选择器第一个高亮
     var Lis = document.getElementsByTagName("li");
@@ -40,13 +55,7 @@
 
 // 左右按钮切换
     document.getElementsByClassName("leftbutton")[0].onclick = function () {
-        //清除定时器
-        clearInterval(autoSwiper);
         buttonClick(-1);
-        //恢复定时器
-        autoSwiper = setInterval(function () {
-            buttonClick(1);
-        },500);
     }
     document.getElementsByClassName("rightbutton")[0].onclick = function () {
         buttonClick(1);
@@ -77,7 +86,7 @@
         swiper(num);
     }
 
-    // autoSwiper = setInterval(function () {
-    //     buttonClick(1);
-    // },500);
+    autoSwiper = setInterval(function () {
+        buttonClick(1);
+    },500);
 }();

@@ -62,6 +62,7 @@
     height: 50px;
     background-color: #feff31;
     z-index: 100;
+    display: none;
 }
 .myswiper .rightbutton{
     position: absolute;
@@ -70,4 +71,5 @@
     height: 50px;
     background-color: #feff31;
     z-index: 100;
+    display: none;
 }
