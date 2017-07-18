@@ -1,7 +1,8 @@
 /**
  * Created by OnlyMid on 2017/7/11.
  */
-!function () {
+
+!function (config) {
     // 定时器
     var autoSwiper;
 
@@ -9,21 +10,19 @@
     document.getElementsByClassName("myswiper")[0].onmouseover = function () {
         console.log("movein");
         //清除定时器
-        clearInterval(autoSwiper);
-        // document.getElementsByClassName("leftbutton")[0].style.display = "block";
-        // document.getElementsByClassName("rightbutton")[0].style.display = "block";
+        if(config.autoSwiper==true){
+            clearInterval(autoSwiper);
+        }
     }
     document.getElementsByClassName("myswiper")[0].onmouseout = function () {
         console.log("moveout");
         //恢复定时器
-        autoSwiper = setInterval(function () {
-            buttonClick(1);
-        },3000);
-
-        // document.getElementsByClassName("leftbutton")[0].style.display = "none";
-        // document.getElementsByClassName("rightbutton")[0].style.display = "none";
+        if(config.autoSwiper==true){
+            autoSwiper = setInterval(function () {
+                buttonClick(1);
+            },3000);
+        }
     }
-    
 
     // 默认设置选择器第一个高亮
     var Lis = document.getElementsByTagName("li");
@@ -86,7 +85,9 @@
         swiper(num);
     }
 
-    autoSwiper = setInterval(function () {
-        buttonClick(1);
-    },500);
-}();
+    if(config.autoSwiper){
+        autoSwiper = setInterval(function () {
+            buttonClick(1);
+        },config.swiperTime);
+    }
+}(swiper_config);
