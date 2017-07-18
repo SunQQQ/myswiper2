@@ -10,8 +10,8 @@
         console.log("movein");
         //清除定时器
         clearInterval(autoSwiper);
-        document.getElementsByClassName("leftbutton")[0].style.display = "block";
-        document.getElementsByClassName("rightbutton")[0].style.display = "block";
+        // document.getElementsByClassName("leftbutton")[0].style.display = "block";
+        // document.getElementsByClassName("rightbutton")[0].style.display = "block";
     }
     document.getElementsByClassName("myswiper")[0].onmouseout = function () {
         console.log("moveout");
@@ -20,8 +20,8 @@
             buttonClick(1);
         },3000);
 
-        document.getElementsByClassName("leftbutton")[0].style.display = "none";
-        document.getElementsByClassName("rightbutton")[0].style.display = "none";
+        // document.getElementsByClassName("leftbutton")[0].style.display = "none";
+        // document.getElementsByClassName("rightbutton")[0].style.display = "none";
     }
     
 
